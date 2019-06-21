@@ -10,5 +10,7 @@ using namespace cv;
 void opencv_01_base();
 void opencv_02_data_type();
 void opencv_03_array_operations();
+void opencv_04_drawing();
+void opencv_05_functors();
 
 #endif

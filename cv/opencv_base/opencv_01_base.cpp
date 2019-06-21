@@ -186,6 +186,7 @@ void copy_test(Mat _img)
 	cout << _img.u->refcount << endl;
 	cout << "quit copy_test " << endl;
 }
+
 void copy_test2()
 {
 	cout << "entry copy_test2 " << endl;
@@ -197,10 +198,48 @@ void copy_test2()
 	cout << "quit copy_test2 " << endl;
 }
 
+void imencode_imdecode()
+{
+	cout << "entry imencode_imdecode " << endl;
+	string imagePath = "D:\\dataset\\test_image/lena.jpg";
+	Mat img = imread(imagePath);
+	//int N = 3;
+	//Mat img = Mat::zeros(N, N, CV_8UC1);
+	vector<uchar> data_encode;
+	imencode(".png", img, data_encode);
+	string str_encode(data_encode.begin(), data_encode.end());
+	int N2 = 1;
+	Mat img2 = Mat::zeros(N2, N2, CV_8UC1);
+	vector<uchar> data_encode2;
+	imencode(".png", img2, data_encode2);
+
+	vector<uchar> data_decode(str_encode.begin(), str_encode.end());
+	Mat img_decode = imdecode(data_decode, IMREAD_COLOR);
+
+	ifstream fin(imagePath, ios::in | ios::binary);
+	//ifstream fin(imagePath, ios::in);
+	if (!fin)
+	{
+		cout << "no file: " << imagePath << endl;
+	}
+	string s;
+	for (int i = 0; i < 100; i++)
+	{
+		//fin >> s;
+	}
+	std::stringstream buffer;
+	buffer << fin.rdbuf();
+	std::string s2(buffer.str());
+	vector<uchar> data_decode2(s2.begin(), s2.end());
+	Mat img_decode2 = imdecode(data_decode2, IMREAD_COLOR);
+
+	cout << "quit imencode_imdecode " << endl;
+}
+
 void opencv_01_base()
 {
 	cout << "entry opencv_01_base " << endl;
-	int index = 6;
+	int index = 7;
 	switch (index)
 	{
 	case 0:image_io_test(); break;
@@ -210,6 +249,7 @@ void opencv_01_base()
 	case 4:operate_pixel(); break;
 	case 5:calculate_time(); break;
 	case 6:copy_test2(); break;
+	case 7:imencode_imdecode(); break;
 	default:break;
 	}
 	cout << "quit opencv_01_base " << endl;

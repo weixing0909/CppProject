@@ -1,66 +1,5 @@
 #include "main.h"
 
-void save_image_test()
-{
-	Mat img = imread("D:/temp/aaa/a1.png");
-	imwrite("D:/temp/aaa/a2.JPEG", img);
-	cout << "endl" << endl;
-}
-
-void operate_element()
-{
-	Mat img = imread("D:/dataset/test_image/lena.jpg");
-	Mat img2;
-	img.copyTo(img2);
-	double tt = getTickCount();
-	for (int i = 0; i < img.rows; i++)
-	{
-		for (int j = 0; j < img.cols; j++)
-		{
-			img2.at<Vec3b>(i, j)[0] /= 2;
-			img2.at<Vec3b>(i, j)[1] /= 2;
-			img2.at<Vec3b>(i, j)[2] /= 2;
-		}
-	}
-	cout << "time1 : " << (getTickCount() - tt) / getTickFrequency() * 1000 << endl;
-
-	img.copyTo(img2);
-	tt = getTickCount();
-	for (int i = 0; i < img.rows; i++)
-	{
-		uchar *pointer = img2.ptr<uchar>(i);
-		for (int j = 0; j < img.cols; j++)
-		{
-			pointer[j * 3 + 0] /= 2;
-			pointer[j * 3 + 1] /= 2;
-			pointer[j * 3 + 2] /= 2;
-		}
-	}
-	cout << "time2 : " << (getTickCount() - tt) / getTickFrequency() * 1000 << endl;
-
-	img.copyTo(img2);
-	tt = getTickCount();
-	uchar *p = (uchar *)img2.data;
-	int step = img2.step;
-	for (int i = 0; i < img.rows; i++)
-	{
-		for (int j = 0; j < img.cols; j++)
-		{
-			p[i*step + j * 3 + 0] /= 2;
-			p[i*step + j * 3 + 1] /= 2;
-			p[i*step + j * 3 + 2] /= 2;
-		}
-	}
-	cout << "time3 : " << (getTickCount() - tt) / getTickFrequency() * 1000 << endl;
-	/*
-	time1 : 18.4394
-	time2 : 0.735856
-	time3 : 1.30076
-	so method 2nd is fastest
-	*/
-	cout << "endl" << endl;
-}
-
 int convert_hwc()
 {
 	/*
@@ -109,23 +48,18 @@ int convert_hwc()
 	return 0;
 }
 
-void make_dir(string _dirName)
-{
-
-}
-
 int main(int argc, char** argv)
 {
 	cout << "entry opencv base practice" << endl;
-	int index = 6;
+	int index = 4;
 	switch (index)
 	{
-	case 1:save_image_test(); break;
-	case 2:operate_element(); break;
 	case 3:convert_hwc(); break;
 	case 4:opencv_01_base(); break;
 	case 5:opencv_02_data_type(); break;
 	case 6:opencv_03_array_operations(); break;
+	case 7:opencv_04_drawing(); break;
+	case 8:opencv_05_functors(); break;
 	default:break;
 	}
 	cout << "quit opencv base practice" << endl;

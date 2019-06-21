@@ -159,7 +159,7 @@ void data_type_helper_objects()
 	//CV_Error_(1);
 	//CV_Assert(1);
 	// cv::DataType<>
-	DataType<int> a;
+	//DataType<int> a;
 	// cv::InputArray and cv::OutputArray
 	InputArray i(m1);
 	OutputArray o(m1);
@@ -189,13 +189,13 @@ void data_type_utility_functions()
 	// cv::fastFree()
 	// cv::fastMalloc()
 	// cv::format()
-	double a7 = getCPUTickCount();
+	int64 a7 = getCPUTickCount();
 	int a8 = getNumThreads();
 	int a9 = getThreadNum();
 	// cv::getOptimalDFTSize()
 	int64 a10 = getTickCount();
 	double a11 = getTickFrequency();
-	float f = 0.111;
+	float f = 0.111f;
 	int a12 = cvIsInf(f);
 	int a13 = cvIsNaN(f);
 	// cv::setNumThreads()
