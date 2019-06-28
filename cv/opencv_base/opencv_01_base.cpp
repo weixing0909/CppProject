@@ -236,10 +236,111 @@ void imencode_imdecode()
 	cout << "quit imencode_imdecode " << endl;
 }
 
+Rect box;
+bool drawing_box = false;
+void my_mouse_callback(int event, int x, int y, int flags, void* param)
+{
+	Mat &image = *(Mat*)param; //定义了一个引用，相当于起别名
+	switch (event) {
+	case cv::EVENT_MOUSEMOVE: {
+		if (drawing_box)
+		{
+			box.width = x - box.x;
+			box.height = y - box.y;
+		}
+		break;
+	}
+	case cv::EVENT_LBUTTONDOWN: {
+		drawing_box = true;
+		box = Rect(x, y, 0, 0);
+		break;
+	}
+	case cv::EVENT_LBUTTONUP: {
+		drawing_box = false;
+		if (box.width < 0)
+		{
+			box.x += box.width;
+			box.width *= -1;
+		}
+		if (box.height < 0)
+		{
+			box.y += box.height;
+			box.height *= -1;
+		}
+		cv::rectangle(image,box.tl(),box.br(),cv::Scalar(0x00, 0x00, 0xff) /* red */);
+		cv::imshow("Box Example", image);
+		break;
+	}
+	}
+}
+
+void mouse_callback_test()
+{
+	cout << "entry mouse_callback_test " << endl;
+	box = cv::Rect(-1, -1, 0, 0);
+	cv::Mat image(200, 200, CV_8UC3), temp;
+	image.copyTo(temp);
+	box = cv::Rect(-1, -1, 0, 0);
+	image = cv::Scalar::all(0);
+	cv::namedWindow("Box Example");
+
+	cv::setMouseCallback(
+		"Box Example",
+		my_mouse_callback,
+		(void*)&image
+	);
+
+	for (;;) {
+		image.copyTo(temp);
+		if (drawing_box) cv::rectangle(image, box.tl(), box.br(), cv::Scalar(0x00, 0x00, 0xff) /* red */);
+		cv::imshow("Box Example", temp);
+		if (cv::waitKey(0) == 27) break;
+	}
+
+	cout << "quit mouse_callback_test " << endl;
+}
+
+#if 0
+void on_opengl(void* param)
+{
+	glLoadIdentity();
+	glTranslated(0.0, 0.0, -1.0);
+	glRotatef(55, 1, 0, 0);
+	glRotatef(45, 0, 1, 0);
+	glRotatef(0, 0, 0, 1);
+	static const int coords[6][4][3] = {
+		{ { +1, -1, -1 }, { -1, -1, -1 }, { -1, +1, -1 }, { +1, +1, -1 } },
+		{ { +1, +1, -1 }, { -1, +1, -1 }, { -1, +1, +1 }, { +1, +1, +1 } },
+		{ { +1, -1, +1 }, { +1, -1, -1 }, { +1, +1, -1 }, { +1, +1, +1 } },
+		{ { -1, -1, -1 }, { -1, -1, +1 }, { -1, +1, +1 }, { -1, +1, -1 } },
+		{ { +1, -1, +1 }, { -1, -1, +1 }, { -1, -1, -1 }, { +1, -1, -1 } },
+		{ { -1, -1, +1 }, { +1, -1, +1 }, { +1, +1, +1 }, { -1, +1, +1 } }
+	};
+	for (int i = 0; i < 6; ++i) {
+		glColor3ub(i * 20, 100 + i * 10, i * 42);
+		glBegin(GL_QUADS);
+		for (int j = 0; j < 4; ++j) {
+			glVertex3d(0.2 * coords[i][j][0], 0.2 * coords[i][j][1], 0.2 * coords[i][j][2]);
+		}
+		glEnd();
+	}
+}
+#endif
+void opengl_test()
+{
+	cout << "entry opengl_test " << endl;
+	string openGLWindowName = "OpenGL Test";
+	//cv::namedWindow(openGLWindowName, WINDOW_OPENGL);
+	//resizeWindow(openGLWindowName, 640, 480);
+	//setOpenGlContext(openGLWindowName);
+	//setOpenGlDrawCallback(openGLWindowName, on_opengl, NULL);
+	cout << "quit opengl_test " << endl;
+}
+
 void opencv_01_base()
 {
 	cout << "entry opencv_01_base " << endl;
-	int index = 7;
+	int index = 9;
 	switch (index)
 	{
 	case 0:image_io_test(); break;
@@ -250,6 +351,8 @@ void opencv_01_base()
 	case 5:calculate_time(); break;
 	case 6:copy_test2(); break;
 	case 7:imencode_imdecode(); break;
+	case 8:mouse_callback_test(); break;
+	case 9:opengl_test(); break;
 	default:break;
 	}
 	cout << "quit opencv_01_base " << endl;

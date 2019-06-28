@@ -51,7 +51,7 @@ int convert_hwc()
 int main(int argc, char** argv)
 {
 	cout << "entry opencv base practice" << endl;
-	int index = 4;
+	int index = 9;
 	switch (index)
 	{
 	case 3:convert_hwc(); break;
@@ -60,6 +60,7 @@ int main(int argc, char** argv)
 	case 6:opencv_03_array_operations(); break;
 	case 7:opencv_04_drawing(); break;
 	case 8:opencv_05_functors(); break;
+	case 9:opencv_06_filters(); break;
 	default:break;
 	}
 	cout << "quit opencv base practice" << endl;

@@ -130,8 +130,8 @@ void functors_PCA2()
 	#define CV_PCA_DATA_AS_COL 1
 	#define CV_PCA_USE_AVG 2
 	*/
-	int 层数 = 80;
-	PCA pca(frame, Mat(), PCA::DATA_AS_COL, 层数);
+	int a = 80; //层数
+	PCA pca(frame, Mat(), PCA::DATA_AS_COL, a);
 	//图片大小为400*362
 	//这里按COL的方式降维，保证列数不便，行数降低到120层
 	//所以可以发现打印的均值的规格为1*362
