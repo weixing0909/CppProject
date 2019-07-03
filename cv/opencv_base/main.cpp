@@ -48,10 +48,24 @@ int convert_hwc()
 	return 0;
 }
 
+void tmp_fun()
+{
+	string imagePath = "D:\\dataset\\test_image/lena.jpg";
+	Mat img = imread(imagePath);
+	int roi_w = 20;
+	int roi_h = 20;
+	int y_offset = 0;
+	int x_offset = img.cols - roi_w;
+	int roi_x = x_offset;
+	int roi_y = y_offset;
+	Mat roi = img(Rect(roi_x, roi_y, roi_w, roi_h));
+	cout << endl;
+}
+
 int main(int argc, char** argv)
 {
 	cout << "entry opencv base practice" << endl;
-	int index = 9;
+	int index = 10;
 	switch (index)
 	{
 	case 3:convert_hwc(); break;
@@ -61,6 +75,8 @@ int main(int argc, char** argv)
 	case 7:opencv_04_drawing(); break;
 	case 8:opencv_05_functors(); break;
 	case 9:opencv_06_filters(); break;
+	case 10:opencv_07_transforms(); break;
+	case 89:tmp_fun(); break;
 	default:break;
 	}
 	cout << "quit opencv base practice" << endl;

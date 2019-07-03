@@ -101,16 +101,66 @@ void filters_gradients_test()
 	cout << endl;
 }
 
+void filters_morphology()
+{
+	/*
+	Erosion
+	Dilation
+	Opening
+	Closing
+	Grad
+	TopHat
+	BlackHat
+	*/
+	string imagePath = "D:\\dataset\\test_image/lena.jpg";
+	Mat img = imread(imagePath, 0);
+	//threshold(img, img, 128, 255, THRESH_BINARY);
+	Mat k = getStructuringElement(MORPH_CROSS, Size(5, 5), Point(-1, -1));
+	Mat dst;
+	erode(img, dst, k, Point(-1, -1), BORDER_DEFAULT); // erode(x,y) = min src(x+i, y+j) (i,j) in kernel
+	Mat dst2;
+	dilate(img, dst2, k, Point(-1, -1), BORDER_DEFAULT); // erode(x,y) = min src(x+i, y+j) (i,j) in kernel
+	Mat dst3;
+	morphologyEx(img, dst3, MORPH_OPEN, k);
+	Mat dst4;
+	morphologyEx(img, dst4, MORPH_CLOSE, k);
+	Mat dst5;
+	morphologyEx(img, dst5, MORPH_GRADIENT, k);
+	Mat dst6;
+	morphologyEx(img, dst6, MORPH_TOPHAT, k);
+	Mat dst7;
+	morphologyEx(img, dst7, MORPH_BLACKHAT, k);
+	// MORPH_HITMISS
+	cout << endl;
+}
+
+void filters_convolution()
+{
+	string imagePath = "D:\\dataset\\test_image/lena.jpg";
+	Mat img = imread(imagePath, 0);
+	Mat kx, ky;
+	getDerivKernels(kx, ky, 2, 1, 7);
+	Mat g = getGaussianKernel(5, 10.0);
+	Mat k2 = g * g.t();
+	Mat dst;
+	filter2D(img, dst, CV_8U, k2);
+	Mat dst2;
+	sepFilter2D(img, dst2, CV_8U, g, g.t());  // 1xn, nx1
+	cout << endl;
+}
+
 void opencv_06_filters()
 {
 	cout << "entry opencv_06_filters " << endl;
-	int index = 3;
+	int index = 5;
 	switch (index)
 	{
 	case 0:make_border_test(); break;
 	case 1:filters_threshold_test(); break;
 	case 2:filters_smooth_test(); break;
 	case 3:filters_gradients_test(); break;
+	case 4:filters_morphology(); break;
+	case 5:filters_convolution(); break;
 	default:break;
 	}
 	cout << "quit opencv_06_filters " << endl;
