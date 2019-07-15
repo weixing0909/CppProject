@@ -18,5 +18,6 @@ project(cpp_prj)
 
 set(CMAKE_CXX_STANDARD 11)
 
+add_subdirectory(cmake_test)
 add_subdirectory(cplusplus)
 add_subdirectory(cv)
