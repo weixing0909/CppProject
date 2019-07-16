@@ -16,4 +16,4 @@ set(EXCUtTE_NAME cmake_test1)
 message(${EXCUtTE_NAME})
 
 add_executable(${EXCUtTE_NAME} main.cpp)
-set_target_properties(${EXCUtTE_NAME} PROPERTIES FOLDER "${cmake}")
+set_target_properties(${EXCUtTE_NAME} PROPERTIES FOLDER "${folder_cmake}")
