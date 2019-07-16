@@ -77,6 +77,7 @@ int main(int argc, char** argv)
 	case 9:opencv_06_filters(); break;
 	case 10:opencv_07_transforms(); break;
 	case 11:opencv_08_image_analysis(); break;
+	case 11:opencv_09_histogram(); break;
 	case 89:tmp_fun(); break;
 	default:break;
 	}
