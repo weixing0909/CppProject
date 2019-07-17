@@ -65,7 +65,7 @@ void tmp_fun()
 int main(int argc, char** argv)
 {
 	cout << "entry opencv base practice" << endl;
-	int index = 12;
+	int index = 13;
 	switch (index)
 	{
 	case 3:convert_hwc(); break;
@@ -78,6 +78,7 @@ int main(int argc, char** argv)
 	case 10:opencv_07_transforms(); break;
 	case 11:opencv_08_image_analysis(); break;
 	case 12:opencv_09_histogram(); break;
+	case 13:opencv_10_contours(); break;
 	case 89:tmp_fun(); break;
 	default:break;
 	}

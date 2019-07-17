@@ -16,5 +16,6 @@ void opencv_06_filters();
 void opencv_07_transforms();
 void opencv_08_image_analysis();
 void opencv_09_histogram();
+void opencv_10_contours();
 
 #endif

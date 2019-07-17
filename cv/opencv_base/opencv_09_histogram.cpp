@@ -5,20 +5,13 @@ void histogram_test()
 	string imagePath = "D:\\dataset\\test_image/lena.jpg";
 	Mat image = imread(imagePath);
 
-	/// 分割成3个单通道图像 ( R, G 和 B )
 	vector<Mat> rgb_planes;
 	split(image, rgb_planes);
-
-	/// 设定bin数目
 	int histSize = 255;
-
-	/// 设定取值范围 ( R,G,B) )
 	float range[] = { 0, 255 };
 	const float* histRange = { range };
 	bool uniform = true; bool accumulate = false;
 	Mat r_hist, g_hist, b_hist;
-
-	/// 计算直方图:
 	calcHist(&rgb_planes[0], 1, 0, Mat(), r_hist, 1, &histSize, &histRange, uniform, accumulate);
 	calcHist(&rgb_planes[1], 1, 0, Mat(), g_hist, 1, &histSize, &histRange, uniform, accumulate);
 	calcHist(&rgb_planes[2], 1, 0, Mat(), b_hist, 1, &histSize, &histRange, uniform, accumulate);
