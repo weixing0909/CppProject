@@ -18,6 +18,10 @@ project(cpp_prj)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(cmake_test)
-add_subdirectory(cplusplus)
-add_subdirectory(cv)
+add_subdirectory(algorithm)
+#add_subdirectory(cmake_test)
+add_subdirectory(cpp_base)
+#add_subdirectory(cplusplus)
+#add_subdirectory(cv)
+#add_subdirectory(SDL_test)
+add_subdirectory(sword_to_offer)

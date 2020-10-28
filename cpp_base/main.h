@@ -4,5 +4,6 @@
 #include<iostream>
 
 void c11_test();
+void base_class_test();
 
 #endif

@@ -82,7 +82,7 @@ void c11_test1()
 	std::string pattern = "Date.(\\d{4})-(\\d{2}-(\\d{2}))";
 	std::regex express(pattern);
 
-	static_assert(sizeof(void *) == 4, "64-bit code generation is not supported.");
+	// static_assert(sizeof(void *) == 4, "64-bit code generation is not supported.");
 	// static_assert(sizeof(void *) == 8, "32-bit code generation is not supported.");
 
 	cout << endl;

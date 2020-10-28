@@ -21,11 +21,12 @@ void fun_pointer_test()
 int main(int argc, char** argv)
 {
     cout << "entry c++ base practice" << endl;
-	int index = 1;
+	int index = 2;
 	switch (index)
 	{
 	case 0: fun_pointer_test(); break;
 	case 1: c11_test(); break;
+	case 2: base_class_test(); break;
 	default:break;
 	}
 	cout << "quit c++ base practice" << endl;
