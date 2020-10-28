@@ -1,8 +1,7 @@
+set(folder_cpp_primer_plus "CppPrimerPlus")
 
-#project(cpp_base)
-set(EXCUtTE_NAME CppPrimerPlus)
-add_executable(${EXCUtTE_NAME} 
-                main.cpp
-                main.h
-                chapter_01.cpp)
-#set_target_properties(${EXCUtTE_NAME} PROPERTIES FOLDER "${folder_cpp}")
+set(folder_cpp_primer_plus_Chapter01 "Chapter01")
+set(EXCUtTE_NAME_CHAPTER_01_1 CppPrimerPlus_C01_1)
+add_executable(${EXCUtTE_NAME_CHAPTER_01} 
+                Chapter01/main.cpp)
+set_target_properties(${EXCUtTE_NAME_CHAPTER_01} PROPERTIES FOLDER "${folder_cpp_primer_plus}/${folder_cpp_primer_plus_Chapter01}")
