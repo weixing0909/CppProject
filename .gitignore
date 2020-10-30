@@ -1,4 +1,4 @@
-build/
-buildx64/
+build*/
 algorithm/
 sword_to_offer/
+*.exe
