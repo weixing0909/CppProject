@@ -18,7 +18,7 @@ project(cpp_prj)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory(algorithm)
+#add_subdirectory(algorithm)
 #add_subdirectory(cmake_test)
 add_subdirectory(cpp_base)
 add_subdirectory(CppPrimerPlus)

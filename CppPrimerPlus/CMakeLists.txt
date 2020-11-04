@@ -30,7 +30,20 @@ set_target_properties(
 set(ChapterNumber "Chapter03")
 add_executable(c3_1_limits ${ChapterNumber}/c3_1_limits.cpp)
 add_executable(c3_2_exceed ${ChapterNumber}/c3_2_exceed.cpp)
+add_executable(c3_3_hexoct1 ${ChapterNumber}/c3_3_hexoct1.cpp)
+add_executable(c3_4_hexoct2 ${ChapterNumber}/c3_4_hexoct2.cpp)
+add_executable(c3_8_floatnum ${ChapterNumber}/c3_8_floatnum.cpp)
 set_target_properties(
     c3_1_limits
     c3_2_exceed
+    c3_3_hexoct1
+    c3_4_hexoct2
+    c3_8_floatnum
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 04
+set(ChapterNumber "Chapter04")
+add_executable(c4_11_strucrur ${ChapterNumber}/c4_11_strucrur.cpp)
+set_target_properties(
+    c4_11_strucrur
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
