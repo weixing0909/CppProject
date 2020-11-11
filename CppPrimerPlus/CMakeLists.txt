@@ -44,6 +44,12 @@ set_target_properties(
 # Chapter 04
 set(ChapterNumber "Chapter04")
 add_executable(c4_11_strucrur ${ChapterNumber}/c4_11_strucrur.cpp)
+add_executable(c4_14_address ${ChapterNumber}/c4_14_address.cpp)
+add_executable(c4_15_pointer ${ChapterNumber}/c4_15_pointer.cpp)
+add_executable(c4_19_addpntrs ${ChapterNumber}/c4_19_addpntrs.cpp)
 set_target_properties(
     c4_11_strucrur
+    c4_14_address
+    c4_15_pointer
+    c4_19_addpntrs
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
