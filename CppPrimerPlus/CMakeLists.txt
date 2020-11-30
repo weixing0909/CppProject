@@ -53,3 +53,37 @@ set_target_properties(
     c4_15_pointer
     c4_19_addpntrs
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 05
+set(ChapterNumber "Chapter05")
+add_executable(c5_8_block ${ChapterNumber}/c5_8_block.cpp)
+add_executable(c5_19_textin4 ${ChapterNumber}/c5_19_textin4.cpp)
+set_target_properties(
+    c5_8_block
+    c5_19_textin4
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 06
+set(ChapterNumber "Chapter06")
+add_executable(c6_16_outfile ${ChapterNumber}/c6_16_outfile.cpp)
+set_target_properties(
+    c6_16_outfile
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 07
+set(ChapterNumber "Chapter07")
+add_executable(c7_7_arrfun3 ${ChapterNumber}/c7_7_arrfun3.cpp)
+add_executable(c7_15_arrobj ${ChapterNumber}/c7_15_arrobj.cpp)
+set_target_properties(
+    c7_7_arrfun3
+    c7_15_arrobj
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 07
+set(ChapterNumber "Chapter08")
+add_executable(c8_1_inline ${ChapterNumber}/c8_1_inline.cpp)
+add_executable(c8_8_filefunc ${ChapterNumber}/c8_8_filefunc.cpp)
+set_target_properties(
+    c8_1_inline
+    c8_8_filefunc
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
