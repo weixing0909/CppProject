@@ -79,11 +79,25 @@ set_target_properties(
     c7_15_arrobj
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
 
-# Chapter 07
+# Chapter 08
 set(ChapterNumber "Chapter08")
 add_executable(c8_1_inline ${ChapterNumber}/c8_1_inline.cpp)
 add_executable(c8_8_filefunc ${ChapterNumber}/c8_8_filefunc.cpp)
+add_executable(c8_11_functemp ${ChapterNumber}/c8_11_functemp.cpp)
+add_executable(c8_t1 ${ChapterNumber}/c8_t1.cpp)
 set_target_properties(
     c8_1_inline
     c8_8_filefunc
+    c8_11_functemp
+    c8_t1
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 10
+set(ChapterNumber "Chapter10")
+add_executable(c10_1_usestock0 
+                ${ChapterNumber}/c10_1_usestock0.cpp 
+                ${ChapterNumber}/c10_1_stock00.h
+                ${ChapterNumber}/c10_1_stock00.cpp)
+set_target_properties(
+    c10_1_usestock0
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
