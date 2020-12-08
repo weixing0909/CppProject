@@ -98,6 +98,16 @@ add_executable(c10_1_usestock0
                 ${ChapterNumber}/c10_1_usestock0.cpp 
                 ${ChapterNumber}/c10_1_stock00.h
                 ${ChapterNumber}/c10_1_stock00.cpp)
+add_executable(c10_2_usestock2 
+                ${ChapterNumber}/c10_2_usestock2.cpp 
+                ${ChapterNumber}/c10_2_stock20.h
+                ${ChapterNumber}/c10_2_stock20.cpp)
+add_executable(c10_3_stacker
+                ${ChapterNumber}/c10_3_stacker.cpp 
+                ${ChapterNumber}/c10_3_stack.h
+                ${ChapterNumber}/c10_3_stack.cpp)
 set_target_properties(
     c10_1_usestock0
+    c10_2_usestock2
+    c10_3_stacker
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
