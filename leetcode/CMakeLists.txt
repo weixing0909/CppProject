@@ -1,4 +1,4 @@
-set(folder_cpp "leetcode")
+set(folder_leetcode "leetcode")
 add_subdirectory(easy)
-add_subdirectory(medium)
-add_subdirectory(hard)
+#add_subdirectory(medium)
+#add_subdirectory(hard)
