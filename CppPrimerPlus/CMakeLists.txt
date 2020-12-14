@@ -111,3 +111,15 @@ set_target_properties(
     c10_2_usestock2
     c10_3_stacker
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 11
+set(ChapterNumber "Chapter11")
+add_executable(c11_6_usetime1 ${ChapterNumber}/c11_6_usetime1.cpp)
+add_executable(c11_15_randwalk
+                ${ChapterNumber}/c11_15_randwalk.cpp 
+                ${ChapterNumber}/c11_13_vector.h
+                ${ChapterNumber}/c11_14_vector.cpp)
+set_target_properties(
+    c11_6_usetime1
+    c11_15_randwalk
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
