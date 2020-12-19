@@ -123,3 +123,19 @@ set_target_properties(
     c11_6_usetime1
     c11_15_randwalk
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 12
+set(ChapterNumber "Chapter12")
+add_executable(c12_6_string ${ChapterNumber}/c12_6_string.cpp)
+set_target_properties(
+    c12_6_string
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 13
+set(ChapterNumber "Chapter13")
+add_executable(c13_6_usett1 ${ChapterNumber}/usett1.cpp ${ChapterNumber}/tablenn1.cpp ${ChapterNumber}/tablenn1.h)
+add_executable(c13_10_usebrass2 ${ChapterNumber}/usebrass2.cpp ${ChapterNumber}/brass.cpp ${ChapterNumber}/brass.h)
+set_target_properties(
+    c13_6_usett1
+    c13_10_usebrass2
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
