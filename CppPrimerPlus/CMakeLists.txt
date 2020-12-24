@@ -139,3 +139,10 @@ set_target_properties(
     c13_6_usett1
     c13_10_usebrass2
     PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
+
+# Chapter 14
+set(ChapterNumber "Chapter14")
+add_executable(c14_20_tempmemb ${ChapterNumber}/tempmemb.cpp)
+set_target_properties(
+    c14_20_tempmemb
+    PROPERTIES FOLDER "${folder_cpp_primer_plus}/${ChapterNumber}")
